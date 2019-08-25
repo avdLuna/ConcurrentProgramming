@@ -1,3 +1,5 @@
+# Apostila - Programação Concorrente
+
 ---
 author:
 - Amanda Luna
@@ -95,9 +97,8 @@ A execução de uma thread pode passar por quatro estados: novo,
 executável, bloqueado e encerrado. Um exemplo de como funciona a trocas
 entre estes estados na JVM pode ser vista na figura abaixo.
 
-\centering
 ![Estados de uma thread na
-JVM[]{label="EstadosThread"}](ima004.jpg){#EstadosThread}
+JVM[]{label="EstadosThread"}](ima004.jpg)
 
 -   A thread está no estado de novo, quando é criada. Ou seja, quando é
     alocada área de memória para ela através do operador new.Ao ser
