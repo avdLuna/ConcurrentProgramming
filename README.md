@@ -1,5 +1,3 @@
-# Apostila - Programação Concorrente
-
 ---
 author:
 - Amanda Luna
@@ -8,6 +6,9 @@ bibliography:
 date: Agosto 2019
 title: 'Apostila - Programação Concorrente'
 ---
+
+# Apostila - Programação Concorrente
+
 
 O que é programação concorrente ?
 =================================
