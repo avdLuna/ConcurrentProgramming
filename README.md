@@ -9,6 +9,33 @@ Title: 'Apostila - Programação Concorrente'
 
 # Apostila - Programação Concorrente
 
+Sumário
+=================================
+[O que é programação concorrente ?](https://github.com/avdLuna/ConcurrencyProgramming#o-que-%C3%A9-programa%C3%A7%C3%A3o-concorrente-)
+
+[Threads](https://github.com/avdLuna/ConcurrencyProgramming#threads)
+
+* [Definição](https://github.com/avdLuna/ConcurrencyProgramming#defini%C3%A7%C3%A3o)
+* [Problemas que podemos ter](https://github.com/avdLuna/ConcurrencyProgramming#problemas-que-podemos-ter)
+* [Estados de uma thread](https://github.com/avdLuna/ConcurrencyProgramming#estados-de-uma-thread)
+
+[Introdução a Threads em Java](https://github.com/avdLuna/ConcurrencyProgramming#introdu%C3%A7%C3%A3o-a-threads-em-java)
+
+* [Começando a trabalhar com threads (Java)](https://github.com/avdLuna/ConcurrencyProgramming#come%C3%A7ando-a-trabalhar-com-threads-java)
+* [Métodos para trabalhar com threads (Java)](https://github.com/avdLuna/ConcurrencyProgramming#m%C3%A9todos-para-trabalhar-com-threads-java)
+* [Trabalhando com múltiplas threads (Java)](https://github.com/avdLuna/ConcurrencyProgramming#trabalhando-com-m%C3%BAltiplas-threads-java)
+
+[Introdução a threads em C](https://github.com/avdLuna/ConcurrencyProgramming#introdu%C3%A7%C3%A3o-a-threads-em-c)
+
+* [Começando a trabalhar com threads (C)](https://github.com/avdLuna/ConcurrencyProgramming#come%C3%A7ando-a-trabalhar-com-threads-c)
+* [Métodos para trabalhar com threads (C)](https://github.com/avdLuna/ConcurrencyProgramming#m%C3%A9todos-para-trabalhar-com-threads-c)
+* [Trabalhando com múltiplas threads (C)](https://github.com/avdLuna/ConcurrencyProgramming#trabalhando-com-m%C3%BAltiplas-threads-c)
+
+[Exclusão Mútua](https://github.com/avdLuna/ConcurrencyProgramming#exclus%C3%A3o-m%C3%BAtua)
+
+* [Produtor/Consumidor](https://github.com/avdLuna/ConcurrencyProgramming#produtorconsumidor)
+    * [Produtor/Consumidor (Java)](https://github.com/avdLuna/ConcurrencyProgramming#produtorconsumidor-java)
+    * [Produtor/Consumidor (C)](https://github.com/avdLuna/ConcurrencyProgramming#produtorconsumidor-c)
 
 O que é programação concorrente ?
 =================================
@@ -17,23 +44,22 @@ Os sistemas de computação modelam o mundo e este contém atores que
 executam independentemente, mas se comunicam uns com os outros. Na
 modelagem do mundo, muitas (possivelmente) execuções paralelas precisam
 ser compostas e coordenadas, e é aí que entra o estudo da
-concorrência.[@IntroConcurrency]
+concorrência.
 
 A concorrência nada mais é do que a coordenação e gestão destas linhas
-independentes de execução[@IntroConcurrency] e pode ocorrer quando
+independentes de execução e pode ocorrer quando
 várias cópias da mesma tarefa são executadas ao mesmo tempo, mas no
 decorrer de sua execução, essas cópias se comunicam umas com as outras,
-via memória compartilhada ou passagem de mensagens.[@WhatIsConcurrency]
+via memória compartilhada ou passagem de mensagens.
 
 Ou seja, programação concorrente fornece uma maneira de tornar eficaz
 uso de sistemas paralelos e distribuídos que executam muitas tarefas
-simultaneamente.[@StudentsArticle]
+simultaneamente.
 
 Um detalhe importante é que **não** devemos confundir concorrência com
 paralelismo, pois concorrência é sobre *lidar* com muitas coisas de uma
 só vez, já paralelismo é sobre *fazer* muitas coisas ao mesmo
-tempo.[@ConcurrencyVsParallelism]
-
+tempo.
 Threads
 =======
 
@@ -41,7 +67,7 @@ Definição
 ---------
 
 De forma simplista e direta, uma thread é uma linha (thread) de execução
-de um processo [@Tanenbaum:2014] ou também pode ser vista como um
+de um processo ou também pode ser vista como um
 subprocesso de um processo. Como threads têm algumas das propriedades
 dos processos, às vezes eles são chamados de *processos leves*.
 
@@ -49,7 +75,7 @@ Threads têm exatamente o mesmo espaço de endereçamento, o que significa
 que elas também compartilham as mesmas variáveis globais. Tendo em vista
 que toda thread pode acessar todo espaço de endereçamento de memória
 dentro do espaço de endereçamento do processo, um thread pode ler,
-escrever, ou mesmo apagar a pilha de outro thread,[@Tanenbaum:2014] o
+escrever, ou mesmo apagar a pilha de outro thread, o
 que é considerado um grande problema. Para evitar isto, uma das
 possíveis soluções é garantir **exclusão mútua**, que nada mais é do que
 garantir que apenas uma thread entre nos espaços com recursos
@@ -65,7 +91,7 @@ Problemas que podemos ter
 -------------------------
 
 Seguem aqui alguns problemas que poderemos ter quando ocorrem condições
-de corrida nas regiões críticas[@Problems]
+de corrida nas regiões críticas
 
 -   Livelock
 
@@ -141,7 +167,7 @@ JVM[]{label="EstadosThread"}](ima004.jpg)
 
 -   A thread está no estado de encerrado, quando encerrar a sua
     execução. Isto pode acorrer pelo término do método *run()*, ou pela
-    chamada explícita do método *stop()*. [@ThreadsStates]
+    chamada explícita do método *stop()*.
 
 Por agora não se preocupe tanto com essas nomenclaturas, detalharemos
 elas na seção seguinte.
@@ -163,7 +189,7 @@ superclasse, implementar a interface *Runnable* é mais apropriado do que
 usar a classe *Thread*, pois podemos estender outra classe ao
 implementar a interface para criar uma thread, mas, se apenas
 esterdermos a classe *Thread*, não poderemos herdar de nenhuma outra
-classe.[@RunVsTh]
+classe.
 
 Começando a trabalhar com threads (Java)
 ----------------------------------------
@@ -208,7 +234,7 @@ Métodos para trabalhar com Threads (Java)
 -----------------------------------------
 
 Segue abaixo uma lista com alguns métodos disponíveis da classe
-*Thread*: [@ThreadsStates]
+*Thread*:
 
 -   `void run()` -- Deve conter o código que se deseja executar, quando
     a thread estiver ativa;
@@ -388,7 +414,7 @@ Meu ID e 1 e eu estou executando
 Métodos para trabalhar com threads (C)
 --------------------------------------
 
-Segue abaixo ums lista com algumas funções básicas de *pthread*:[@CDocs]
+Segue abaixo ums lista com algumas funções básicas de *pthread*:
 
 -   `pthread_create(pthread_t *, const pthread_attr_t *,void *(*)(void *), void *)`
     -- Cria uma thread baseado nos parâmetros colocados;
@@ -402,7 +428,7 @@ Segue abaixo ums lista com algumas funções básicas de *pthread*:[@CDocs]
     disponibiliza o valor de *\*valueptr* para qualquer chamada de
     função *join* que contenha a thread atual.
 
-Agora algumas funções envolvendo mutex:[@CFunc]
+Agora algumas funções envolvendo mutex:
 
 -   `pthread_mutex_init(pthread_mutex_t *restrict mutex, const pthread_mutexattr_t *restrict attr);`
     -- Inicia o mutex que foi passado no primeiro parâmetro. O segundo
@@ -425,7 +451,7 @@ Agora algumas funções envolvendo mutex:[@CFunc]
 -   `pthread_mutex_destroy(pthread_mutex_t *mutex);` -- Deleta o mutex
     especificado no parâmetro.
 
-Por último, envolvendo variáveis condicionais:[@CCond]
+Por último, envolvendo variáveis condicionais:
 
 -   `pthread_cond_init(pthread_cont_t *cv, const pthread_condattr_t *cattr);`
     -- Inicia a variável condicional passada no primeiro parâmetro. O
@@ -536,7 +562,7 @@ consumir mais rápido do que o produtor pode produzir ou o produtor
 produzir mais rápido do que o consumidor consome.
 
 Dado isto, iremos explorar soluções para que o programa execute um fluxo
-correto de produzir/consumir.[@Jacques]
+correto de produzir/consumir.
 
 ### Produtor/Consumidor (Java)
 
@@ -804,7 +830,7 @@ Você pode implementar esta solução utilizando apenas uma variável
 condicional, Porém, na solução que será mostrada, teremos um buffer de
 tamanho 1, usaremos duas variáveis condicionais (uma para quando o
 buffer estiver vazio e outra para quando estiver cheio) e um
-mutex.[@Cprodcons]
+mutex.
 
 Seguindo a mesma linha do nosso exemplo em Java, nosso produtor irá
 produzir valores de 0 a 9.
@@ -933,3 +959,4 @@ O output deste programa foi:
     Consumidor retirou 9
     Consumidor terminando
 
+As referências para esta apostila podem ser encontradas no arquivo [references.bib](https://github.com/avdLuna/ConcurrencyProgramming/blob/master/references.bib)
