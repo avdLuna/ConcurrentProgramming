@@ -933,4 +933,3 @@ O output deste programa foi:
     Consumidor retirou 9
     Consumidor terminando
 
-\bibliographystyle{plain}
