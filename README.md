@@ -240,7 +240,7 @@ Segue abaixo uma lista com alguns métodos disponíveis da classe
 
 Para mais detalhes e conhecer mais métodos disponíveis, você pode
 consultar a
-[[]{style="color: blue"}](https://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html)
+[documentação](https://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html)
 de *Thread*
 
 Trabalhando com múltiplas threads (Java)
@@ -352,7 +352,7 @@ int pthread_create(minha_thread, NULL, minha_funcao, argumentos_da_funcao);
 
 Obs. Se você está com dificuldades em entender como funcionam os
 apontadores, talvez
-[[]{style="color: blue"}](https://www.tutorialspoint.com/cprogramming/c_pointers.htm)
+[isto](https://www.tutorialspoint.com/cprogramming/c_pointers.htm)
 possa lhe ajudar.
 
 Agora vejamos um programa semelhante ao *exemplo 1* feito em Java, agora
@@ -459,7 +459,7 @@ thread.
 
 Para mais detalhes e conhecer mais funções disponíveis, você pode
 consultar a
-[[]{style="color: blue"}](http://pubs.opengroup.org/onlinepubs/7908799/xsh/pthread.h.html).
+[documentação](http://pubs.opengroup.org/onlinepubs/7908799/xsh/pthread.h.html).
 
 Trabalhando com múltiplas threads (C)
 -------------------------------------
@@ -790,7 +790,7 @@ Eis o output do código acima:
 Com isso, vemos que este código funciona e é uma das opções de solução
 para o nosso problema. A segunda opção de solução para o problema pode
 ser vista no
-[[]{style="color: blue"}](https://github.com/thiagomanel/fpc/blob/master/threads/java/prod_cons/src/br/edu/ufcg/lsd/pc/Main.java)
+[github](https://github.com/thiagomanel/fpc/blob/master/threads/java/prod_cons/src/br/edu/ufcg/lsd/pc/Main.java)
 do professor, em que ele utiliza um equivalente ao objeto *Caixinha*
 (Data) como trava do *synchronized* nas classes de produtor/consumidor.
 
