@@ -60,6 +60,7 @@ Um detalhe importante é que **não** devemos confundir concorrência com
 paralelismo, pois concorrência é sobre *lidar* com muitas coisas de uma
 só vez, já paralelismo é sobre *fazer* muitas coisas ao mesmo
 tempo.
+
 Threads
 =======
 
