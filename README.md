@@ -1,10 +1,10 @@
 ---
-author:
+Author:
 - Amanda Luna
-bibliography:
+Bibliography:
 - 'references.bib'
-date: Agosto 2019
-title: 'Apostila - Programação Concorrente'
+Date: Agosto 2019
+Title: 'Apostila - Programação Concorrente'
 ---
 
 # Apostila - Programação Concorrente
@@ -390,61 +390,61 @@ Métodos para trabalhar com threads (C)
 
 Segue abaixo ums lista com algumas funções básicas de *pthread*:[@CDocs]
 
--   `pthreadcreate(pthreadt *, const pthreadattrt *,void *(*)(void *), void *)`
+-   `pthread_create(pthread_t *, const pthread_attr_t *,void *(*)(void *), void *)`
     -- Cria uma thread baseado nos parâmetros colocados;
 
--   `pthreadjoin(pthreadt thread, void **valueptr)` -- Suspende a
+-   `pthread_join(pthread_t thread, void **value_ptr)` -- Suspende a
     execução da thread corrente até que a thread passada como parâmetro
     termine. O segundo parâmetro contém o valor passado em
-    *pthreadexit*;
+    *pthread_exit*;
 
--   `pthreadexit(void *valueptr);` -- Termina a thread que a chamou e
+-   `pthread_exit(void *value_ptr);` -- Termina a thread que a chamou e
     disponibiliza o valor de *\*valueptr* para qualquer chamada de
     função *join* que contenha a thread atual.
 
 Agora algumas funções envolvendo mutex:[@CFunc]
 
--   `pthreadmutexinit(pthreadmutext *restrict mutex, const pthreadmutexattrt *restrict attr);`
+-   `pthread_mutex_init(pthread_mutex_t *restrict mutex, const pthread_mutexattr_t *restrict attr);`
     -- Inicia o mutex que foi passado no primeiro parâmetro. O segundo
     parâmetro refere-se aos atributos do mutex, se você não sabe o que
     está fazendo, o ideal é por *NULL*;
 
--   `pthreadmutexlock(pthreadmutext *mutex);` -- Bloqueia o mutex
+-   `pthread_mutex_lock(pthread_mutex_t *mutex);` -- Bloqueia o mutex
     especificado no parâmetro. Se o mutex já estiver bloqueado por outra
     thread, a thread aguarda que o mutex se torne disponível. A thread
     que bloqueou o mutex torna-se sua atual proprietária e permanece
     como proprietária até que a mesmo thread o tenha desbloqueado;
 
--   `pthreadmutexunlock(pthreadmutext *mutex);` -- Libera o mutex
+-   `pthread_mutex_unlock(pthread_mutex_t *mutex);` -- Libera o mutex
     especificado no parâmetro. Se uma ou mais threads estiverem
     aguardando para bloquear o mutex,o unlock com que uma dessas threads
     saia do lock com o mutex do parâmetro. Se nenhuma threads estiver
     aguardando o mutex, o mutex será desbloqueado sem proprietário
     atual;
 
--   `pthreadmutexdestroy((pthreadmutext *mutex);` -- Deleta o mutex
+-   `pthread_mutex_destroy(pthread_mutex_t *mutex);` -- Deleta o mutex
     especificado no parâmetro.
 
 Por último, envolvendo variáveis condicionais:[@CCond]
 
--   `pthreadcondinit(pthreadcontt *cv, const pthreadcondattrt *cattr);`
+-   `pthread_cond_init(pthread_cont_t *cv, const pthread_condattr_t *cattr);`
     -- Inicia a variável condicional passada no primeiro parâmetro. O
     segundo parâmetro refere-se aos atributos dessa variável
     condicional, se você não sabe o que está fazendo, o ideal é por
     *NULL*;
 
--   `pthreadcondwait(pthreadcontt *cv,pthreadmutext *mutex);` -- Esta
+-   `pthread_cond_wait(pthread_cont_t *cv,pthread_mutex_t *mutex);` -- Esta
     função bloqueia até que a condição seja sinalizada (*signal()*. Ele
     atomicamente libera a trava mutex associada antes de bloquear, e
     atomicamente a adquire novamente antes de retornar;
 
--   `pthreadcondsignal(pthreadcontt *cv);` -- Desbloqueia uma thread
+-   `pthread_cond_signal(pthread_cont_t *cv);` -- Desbloqueia uma thread
     específica;
 
--   `pthreadcondbroadcast(pthreadcontt *cv);` -- Desbloqueia todas as
+-   `pthread_cond_broadcast(pthread_cont_t *cv);` -- Desbloqueia todas as
     threads que estiverem bloqueadas;
 
--   `pthreadconddestroy(pthreadcontt *cv);` -- Destrói a variável
+-   `pthread_cond_destroy(pthread_cont_t *cv);` -- Destrói a variável
     condicional passada no parâmetro.
 
 Uma coisa que você pode estar se perguntando é: Por que, destas funções,
